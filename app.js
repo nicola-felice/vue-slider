@@ -29,6 +29,9 @@ const app = new Vue({
         ],
 
         imageIndex: 0,
+
+        autoslide: '',
+
     }, 
     methods: {
         prevImage: function() {            
@@ -47,9 +50,18 @@ const app = new Vue({
             }
         },
 
+        stopAutoSlide: function() {
+            clearInterval(this.autoslide);
+        },
+
         changeimage: function(index) {
             this.imageIndex = index;
-        }
+        },
+    },
+    mounted: function() {
+        this.autoslide = setInterval( () => { 
+            this.nextImage();
+        }, 3000);
     }
 
 });

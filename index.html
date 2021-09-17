@@ -12,17 +12,17 @@
     <div id="root">
         <div class="container">
             <div class="prevImage">
-                <i @click="prevImage()" class="fas fa-chevron-left"></i>
+                <i @click="prevImage(), stopAutoSlide()" class="fas fa-chevron-left"></i>
             </div>
             <div class="image">
                 <h2 class="nameImage">{{sliderImages[imageIndex].nameImg}}</h2>
                 <img :src="sliderImages[imageIndex].url" :alt="sliderImages[imageIndex].alt">
                 <div class="bulletts">
-                    <i @click="changeimage(index)" v-for="(elm, index) in sliderImages" :key="index" :class="(index == imageIndex) ? 'active' : null" class="fas fa-circle bullett"></i>
+                    <i @click="changeimage(index), stopAutoSlide()" v-for="(elm, index) in sliderImages" :key="index" :class="(index == imageIndex) ? 'active' : null" class="fas fa-circle bullett"></i>
                 </div>
             </div>
             <div class="nextImage">
-                <i @click="nextImage()" class="fas fa-chevron-right"></i>
+                <i @click="nextImage(), stopAutoSlide()" class="fas fa-chevron-right"></i>
             </div>
         </div>
     </div>
